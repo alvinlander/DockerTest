@@ -7,6 +7,28 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## How to run this container 🐳
+- You have docker installed in your computer
+- Run this container first https://github.com/raisoturu/ketringan-nginx
+- prepare your .env file (either u hav one or create new one `cp env.example .env`)
+- Then, run our laravel container
+```
+docker-compose up -d
+```
+- then install dependencies
+```
+docker run --rm -v "$(pwd):/app" composer install
+```
+- if you haven't already setup `.env` and your apps run this: (optional & depends)
+```
+docker-compose exec app php artisan key:generate
+```
+- Add this to your hosts file
+```
+127.0.0.1 api.ketringan-dev-rnd.local.com www.api.ketringan-dev-rnd.local.com
+```
+- **NICE**
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
